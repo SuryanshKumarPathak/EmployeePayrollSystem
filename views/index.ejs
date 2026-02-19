@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Payroll</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+    #heading {
+      text-align: center;
+      margin-top: 20px;
+    }
+    *{
+      color:#2c3e50;
+    }
+    
+      </style>
+</head>
+<body>
+  <header>
+    <img src="/image.png"  id="image">
+    </header>
+
+<h1 id = "heading">Employee Details</h1>
+
+
+<a href="/add"><button type="button" id ="add">Add Employee</button></a>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Start-Date</th>
+        <th>Actions</th>
+    </tr>
+
+    <% employees.forEach(emp => { 
+        const tax = emp.salary * 0.12;
+        const net = emp.salary - tax;
+    %>
+
+    <tr>
+        <td>
+          <%= emp.name %>
+        </td>
+        <td><%= emp.gender %></td>
+        <td><%= emp.department %></td>
+        <td>₹ <%= emp.salary %></td>
+        <td><%= emp.startDate %></td>
+        <td>
+            <a href="/edit/<%= emp.id %>"><img src="/edit.png"  id="image1"></a>
+            <a href="/delete/<%= emp.id %>"><img src="/delete.png"  id="image2"></a>
+        </td>
+    </tr>
+
+    <% }) %>
+
+</table>
+
+</body>
+</html>

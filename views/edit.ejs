@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+    #heading {
+      text-align: center;
+      margin-top: 20px;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      color:#2c3e50;
+    }
+    
+    input[type="text"],input[type="date"],textarea,select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/image.png"  id="image">
+    </header>
+
+<h2 id = "heading">Edit Employee Details</h2>
+
+<%
+    const departments = Array.isArray(employee.department)
+        ? employee.department
+        : employee.department
+            ? [employee.department]
+            : [];
+
+    const gender = employee.gender || "";
+    const notes = employee.notes || "";
+    const startDate = employee.startDate || "";
+%>
+
+
+
+<form action="/edit/<%= employee.id %>" method="POST">
+
+
+
+    <strong>Name</strong>
+    <input type="text"
+           name="name"
+           value="<%= employee.name %>"
+           required>
+    <br><br>
+
+
+
+    <strong>Gender</strong>
+    <input type="radio" name="gender" value="Male"
+        <%= gender === "Male" ? "checked" : "" %>>
+    Male
+    <input type="radio" name="gender" value="Female"
+        <%= gender === "Female" ? "checked" : "" %>>
+    Female
+    <input type="radio" name="gender" value="Other"
+        <%= gender === "Other" ? "checked" : "" %>>
+    Other
+    <br><br>
+
+
+
+
+    <strong>Department</strong>
+    <input type="checkbox" name="Department" value="HR"
+        <%= departments.includes("HR") ? "checked" : "" %>>
+    HR
+    <input type="checkbox" name="Department" value="Sales"
+        <%= departments.includes("Sales") ? "checked" : "" %>>
+    Sales
+    <input type="checkbox" name="Department" value="Finance"
+        <%= departments.includes("Finance") ? "checked" : "" %>>
+    Finance
+    <input type="checkbox" name="Department" value="Engineer"
+        <%= departments.includes("Engineer") ? "checked" : "" %>>
+    Engineer
+    <input type="checkbox" name="Department" value="Others"
+        <%= departments.includes("Others") ? "checked" : "" %>>
+    Others
+    <br><br>
+
+    <label><strong>Select the Salary:</strong></label>
+    <select name="Salary" required>
+        <option value="10000" <%= employee.salary == 10000 ? "selected" : "" %>>10,000</option>
+        <option value="20000" <%= employee.salary == 20000 ? "selected" : "" %>>20,000</option>
+        <option value="30000" <%= employee.salary == 30000 ? "selected" : "" %>>30,000</option>
+        <option value="45000" <%= employee.salary == 45000 ? "selected" : "" %>>45,000</option>
+        <option value="50000" <%= employee.salary == 50000 ? "selected" : "" %>>50,000</option>
+    </select>
+    <br><br>
+
+
+
+    <label><strong>Start Date</strong></label><br>
+    <input type="date"
+           name="startDate"
+           value="<%= startDate %>"
+           required>
+    <br><br>
+
+
+    <label><strong>Notes</strong></label><br>
+    <textarea name="notes" rows="4" cols="40" required><%= notes %></textarea>
+    <br><br>
+
+    <button type="submit"  id = "button">Update</button>
+    <a href="/"><button type="button" id = "button">Cancel</button></a>
+
+</form>
+
+</body>
+</html>

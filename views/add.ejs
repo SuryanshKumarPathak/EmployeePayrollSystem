@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Add Employee</title>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function validateForm() {
+      const checkboxes = document.querySelectorAll('input[name="Department"]');
+      let checked = false;
+      checkboxes.forEach(cb => {
+        if (cb.checked) checked = true;
+      });
+      if (!checked) {
+        alert("Please select at least one department.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+  <style>
+    #heading {
+      text-align: center;
+      margin-top: 20px;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      color:#2c3e50;
+    }
+    
+    input[type="text"],input[type="date"],textarea,select{
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="/image.png"  id="image">
+    </header>
+
+  <h2 id="heading">Employee Payroll Form</h2>
+
+  <form action="/add" method="POST" onsubmit="return validateForm()">
+    <strong>Name</strong>
+    <input type="text" name="name" placeholder="Employee Name" required>
+    <br><br>
+
+
+    <strong>Gender</strong>
+    <input type="radio" id="male" name="gender" value="Male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="Female">
+    <label for="female">Female</label>
+    <input type="radio" id="other" name="gender" value="Other">
+    <label for="other">Other</label>
+    <br><br>
+
+    <strong>Department</strong>
+    <input type="checkbox" id="HR" name="Department" value="HR">
+    <label for="HR"> HR</label>
+    <input type="checkbox" id="Sales" name="Department" value="Sales">
+    <label for="Sales"> Sales</label>
+    <input type="checkbox" id="Finance" name="Department" value="Finance">
+    <label for="Finance"> Finance</label>
+    <input type="checkbox" id="Engineer" name="Department" value="Engineer">
+    <label for="Engineer"> Engineer</label>
+    <input type="checkbox" id="Others" name="Department" value="Others">
+    <label for="Others"> Others</label>
+    <br><br>
+
+
+    <label for="Salary"><strong>Select the Salary:</strong></label>
+    <select name="Salary" id="Salary" required>
+      <option value="10000">10,000</option>
+      <option value="20000">20,000</option>
+      <option value="30000">30,000</option>
+      <option value="45000">45,000</option>
+      <option value="50000">50,000</option>
+    </select>
+    <br><br>
+
+    <label><strong>Start Date</strong></label> <input type="date" name="startDate" required>
+    <br><br>
+    <label><strong>Notes</strong></label><br><textarea name="notes" rows="4" cols="40" required></textarea>
+    <br><br>
+
+    <button type="submit" id = "button">Submit</button>
+    <button type="reset"  id = "button">Reset</button>
+    <a href="/"><button type="button"   id = "button">Cancel</button></a>
+
+</body>
+
+</html>
