@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1771449145837,
+    "name": "Surya",
+    "gender": "Male",
+    "department": [
+      "HR"
+    ],
+    "salary": 30000,
+    "startDate": "2024-11-30",
+    "notes": "just for Testing"
+  },
+  {
+    "id": 1771479555135,
+    "name": "Suryansh Kumar Pathak",
+    "gender": "Male",
+    "department": [
+      "Finance"
+    ],
+    "salary": 20000,
+    "startDate": "2021-10-30",
+    "notes": "gyufuygfyufgfdyt"
+  }
+]
