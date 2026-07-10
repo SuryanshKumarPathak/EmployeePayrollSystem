@@ -1,4 +1,4 @@
-# Payroll App
+# Employee Payroll App
 
 A simple Employee Payroll application built with Node.js, Express, and EJS. It lets you add, edit, delete, and view employee records stored in a local `employees.json` file.
 
